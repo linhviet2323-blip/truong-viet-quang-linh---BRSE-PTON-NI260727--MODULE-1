@@ -42,7 +42,6 @@ function hideError() {
 
   signupError.classList.add("hidden");
 }
-
 // Kiểm tra email
 function checkEmail() {
   let email = emailInput.value.trim();
