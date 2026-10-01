@@ -53,11 +53,15 @@ function checkEmail() {
     emailBlank.classList.remove("hidden");
     return false;
   }
+  // Chỗ này e cho kiểm tra có đúng định dạng email hay không
   let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
     hideError();
     msg.classList.add("show");
     validation.classList.remove("hidden");
+    // Nếu nó lỗi nó hiện dòng này ra
+    // nhưng e nhập thử email lỗi vào thì nó chỉ báo là error
+    // chứ không báo cụ thể là lỗi gì
     emailError.classList.remove("hidden");
     return false;
   }
@@ -89,6 +93,9 @@ function checkPassWord() {
     hideError();
     msg.classList.add("show");
     validation.classList.remove("hidden");
+    // Chỗ checkPass này cũng thế nó chỉ báo lỗi chung
+    //  không báo cụ thể là lỗi gì
+    // Thầy cho e xin cái sử lý cụ thể là lỗi gì để e sửa lại
     passMin.classList.remove("hidden");
     return false;
   }
@@ -104,6 +111,8 @@ function checkPassWord() {
     hideError();
     msg.classList.add("show");
     validation.classList.remove("hidden");
+    // Chỗ checkPass này cũng thế nó chỉ báo lỗi chung
+    //  không báo cụ thể là lỗi gì
     passUpperLower.classList.remove("hidden");
     return false;
   }
