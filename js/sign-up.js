@@ -137,15 +137,19 @@ form.addEventListener("submit", function (e) {
   let okPass = checkPassWord();
   if (okEmail && okUser && okPass) {
     console.log("Submit thanh cong");
-    let users = JSON.parse(localStorage.getItem("users")) || [];
-
+    let userList = JSON.parse(localStorage.getItem("userList")) || [];
     let newUser = {
-      email: emailInput.value.trim(),
+      usercode: "U" + (userList.length + 1),
       username: usernameInput.value.trim(),
+      email: emailInput.value.trim(),
       password: passwordInput.value.trim(),
+      role: "",
+      birthday: "",
+      status: "active",
+      description: "",
     };
-    users.push(newUser);
-    localStorage.setItem("users", JSON.stringify(users));
+    userList.push(newUser);
+    localStorage.setItem("userList", JSON.stringify(userList));
 
     showToast();
   }

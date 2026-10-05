@@ -52,7 +52,7 @@ function checkPassword() {
   }
   return true;
 }
-let users = JSON.parse(localStorage.getItem("users")) || [];
+let users = JSON.parse(localStorage.getItem("userList")) || [];
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   hideError();

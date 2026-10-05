@@ -40,7 +40,6 @@ tBody.addEventListener("click", function (e) {
     localStorage.setItem("userList", JSON.stringify(userList));
     renderTable();
   }
-  let searchBox = document.getElementById("search-box");
 });
 
 let searchBox = document.getElementById("search-box");
