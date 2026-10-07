@@ -45,7 +45,6 @@ tBody.addEventListener("click", function (e) {
 let searchBox = document.getElementById("search-box");
 searchBox.addEventListener("input", function () {
   let searchName = searchBox.value.toLowerCase().trim();
-
   // Lọc user theo username
   let filteredUsers = userList.filter((user) =>
     user.username.toLowerCase().includes(searchName),

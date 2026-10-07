@@ -116,7 +116,7 @@
 #main #user-table-container {
   margin-left: 48px;
   margin-right: 36px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 500;
 }
 #user-table-container table {
@@ -194,7 +194,7 @@ table .deactive {
 }
 /* pagination */
 #main #pagination {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   display: flex;
   justify-content: flex-start;
@@ -238,4 +238,20 @@ table .deactive {
 /* hidden */
 #pagination .hidden {
   display: none;
+}
+button {
+  padding: 5px 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.edit-btn {
+  background: #ecd798;
+  color: #000;
+}
+
+.delete-btn {
+  background: #d8505e;
+  color: #fff;
 }

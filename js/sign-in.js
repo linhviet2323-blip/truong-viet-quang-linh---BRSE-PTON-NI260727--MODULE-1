@@ -78,7 +78,6 @@ form.addEventListener("submit", function (e) {
       loginError.classList.remove("hidden");
       return;
     }
-    localStorage.setItem("currentUser", JSON.stringify(user));
     toast.classList.remove("hidden");
     toast.classList.add("show");
     setTimeout(() => {
