@@ -70,6 +70,26 @@
           </p>
           <p class="email-cannot-blank">Email không được bỏ trống</p>
         </div>
+        <div id="email-error" class="hidden">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <span class="email-error-title">Email không đúng định dạng</span>
+        </div>
+        <div id="password-min-length-error" class="hidden">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <span class="password-error-message">Mật khẩu tối thiểu 8 ký tự</span>
+        </div>
+        <div id="password-number-required-error" class="hidden">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <span class="password-error-message"
+            >Mật khẩu phải bao gồm cả chữ số</span
+          >
+        </div>
+        <div id="password-uppercase-lowercase-error" class="hidden">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <span class="password-error-message"
+            >Mật khẩu có cả chữ thường và chữ hoa</span
+          >
+        </div>
       </div>
       <!-- Sign up toast -->
       <div id="sign-up-toast" class="hidden">
@@ -78,30 +98,10 @@
       </div>
       <!-- Sign up error -->
       <div id="sign-up-error" class="hidden">
-        <div class="email-exist hidden">
+        <div id="email-exist" class="hidden">
           <i class="fa-solid fa-circle-exclamation"></i>
           <span class="email-error-title"
             >Email đã tồn tại. Đến trang đăng nhập!</span
-          >
-        </div>
-        <div class="email-error hidden">
-          <i class="fa-solid fa-circle-exclamation"></i>
-          <span class="email-error-title">Email không đúng định dạng</span>
-        </div>
-        <div class="password-min-length-error hidden">
-          <i class="fa-solid fa-circle-exclamation"></i>
-          <span class="password-error-message">Mật khẩu tối thiểu 8 ký tự</span>
-        </div>
-        <div class="password-number-required-error hidden">
-          <i class="fa-solid fa-circle-exclamation"></i>
-          <span class="password-error-message"
-            >Mật khẩu phải bao gồm cả chữ số</span
-          >
-        </div>
-        <div class="password-uppercase-lowercase-error hidden">
-          <i class="fa-solid fa-circle-exclamation"></i>
-          <span class="password-error-message"
-            >Mật khẩu có cả chữ thường và chữ hoa</span
           >
         </div>
       </div>

@@ -12,15 +12,14 @@ let usernameBlank = document.querySelector(".username-cannot-blank");
 let passwordBlank = document.querySelector(".password-cannot-blank");
 let toast = document.getElementById("sign-up-toast");
 console.log(validation, emailBlank, usernameBlank, passwordBlank, toast, msg);
-let emailExist = document.querySelector(".email-exist");
-let emailError = document.querySelector(".email-error");
-let passMin = document.querySelector(".password-min-length-error");
-let passNumber = document.querySelector(".password-number-required-error");
-let passUpperLower = document.querySelector(
-  ".password-uppercase-lowercase-error",
+let emailError = document.getElementById("email-error");
+let passMin = document.getElementById("password-min-length-error");
+let passNumber = document.getElementById("password-number-required-error");
+let passUpperLower = document.getElementById(
+  "password-uppercase-lowercase-error",
 );
 let signupError = document.getElementById("sign-up-error");
-console.log(emailExist, emailError, passMin, passNumber, passUpperLower);
+console.log(emailError, passMin, passNumber, passUpperLower);
 console.log(signupError);
 
 // Hàm ẩn lỗi
@@ -35,7 +34,6 @@ function hideError() {
   toast.classList.add("hidden");
 
   emailError.classList.add("hidden");
-  emailExist.classList.add("hidden");
   passMin.classList.add("hidden");
   passNumber.classList.add("hidden");
   passUpperLower.classList.add("hidden");
@@ -46,21 +44,16 @@ function hideError() {
 function checkEmail() {
   let email = emailInput.value.trim();
   if (email === "") {
-    hideError();
     msg.classList.add("show");
     validation.classList.remove("hidden");
     emailBlank.classList.remove("hidden");
     return false;
   }
   // Chỗ này e cho kiểm tra có đúng định dạng email hay không
-  let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   if (!emailRegex.test(email)) {
-    hideError();
     msg.classList.add("show");
     validation.classList.remove("hidden");
-    // Nếu nó lỗi nó hiện dòng này ra
-    // nhưng e nhập thử email lỗi vào thì nó chỉ báo là error
-    // chứ không báo cụ thể là lỗi gì
     emailError.classList.remove("hidden");
     return false;
   }
@@ -70,7 +63,6 @@ function checkEmail() {
 function checkUserName() {
   let username = usernameInput.value.trim();
   if (username === "") {
-    hideError();
     msg.classList.add("show");
     validation.classList.remove("hidden");
     usernameBlank.classList.remove("hidden");
@@ -82,19 +74,14 @@ function checkUserName() {
 function checkPassWord() {
   let password = passwordInput.value.trim();
   if (password === "") {
-    hideError();
     msg.classList.add("show");
     validation.classList.remove("hidden");
     passwordBlank.classList.remove("hidden");
     return false;
   }
   if (password.length < 8) {
-    hideError();
     msg.classList.add("show");
     validation.classList.remove("hidden");
-    // Chỗ checkPass này cũng thế nó chỉ báo lỗi chung
-    //  không báo cụ thể là lỗi gì
-    // Thầy cho e xin cái sử lý cụ thể là lỗi gì để e sửa lại
     passMin.classList.remove("hidden");
     return false;
   }
@@ -102,20 +89,19 @@ function checkPassWord() {
   let hasLower = /[a-z]/;
   let hasNumber = /\d/;
 
-  if (
-    !hasUpper.test(password) ||
-    !hasLower.test(password) ||
-    !hasNumber.test(password)
-  ) {
-    hideError();
+  if (!hasUpper.test(password) || !hasLower.test(password)) {
     msg.classList.add("show");
     validation.classList.remove("hidden");
-    // Chỗ checkPass này cũng thế nó chỉ báo lỗi chung
-    //  không báo cụ thể là lỗi gì
     passUpperLower.classList.remove("hidden");
     return false;
   }
 
+  if (!hasNumber.test(password)) {
+    msg.classList.add("show");
+    validation.classList.remove("hidden");
+    passNumber.classList.remove("hidden");
+    return false;
+  }
   return true;
 }
 // Hien thi toast
@@ -126,12 +112,13 @@ function showToast() {
   setTimeout(() => {
     toast.classList.remove("show");
     window.location.href = "sign-in.html";
-  }, 1000);
+  }, 1500);
 }
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
+  hideError();
   let okEmail = checkEmail();
   let okUser = checkUserName();
   let okPass = checkPassWord();
@@ -139,7 +126,7 @@ form.addEventListener("submit", function (e) {
     console.log("Submit thanh cong");
     let userList = JSON.parse(localStorage.getItem("userList")) || [];
     let newUser = {
-      usercode: "U" + (userList.length + 1),
+      usercode: `U${userList.length + 1}`,
       username: usernameInput.value.trim(),
       email: emailInput.value.trim(),
       password: passwordInput.value.trim(),
