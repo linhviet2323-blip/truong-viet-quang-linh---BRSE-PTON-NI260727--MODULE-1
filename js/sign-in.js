@@ -9,7 +9,15 @@ let passwordBlank = document.querySelector(".password-cannot-blank");
 let emailBlank = document.querySelector(".email-cannot-blank");
 let loginError = document.getElementById("login-error");
 let toast = document.getElementById("login-toast");
-console.log(validation, passwordBlank, emailBlank, loginError, toast);
+let emailError = document.getElementById("email-error");
+console.log(
+  validation,
+  passwordBlank,
+  emailBlank,
+  loginError,
+  toast,
+  emailError,
+);
 
 // Hàm ẩn lỗi
 function hideError() {
@@ -19,23 +27,23 @@ function hideError() {
   emailBlank.classList.add("hidden");
   loginError.classList.add("hidden");
   toast.classList.add("hidden");
+  emailError.classList.add("hidden");
 }
 
 // Kiểm tra email
 function checkEmail() {
   let email = emailInput.value.trim();
   if (email === "") {
-    hideError();
     msg.classList.add("show");
     validation.classList.remove("hidden");
     emailBlank.classList.remove("hidden");
     return false;
   }
-  let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   if (!emailRegex.test(email)) {
-    hideError();
     msg.classList.add("show");
     validation.classList.remove("hidden");
+    emailError.classList.remove("hidden");
     return false;
   }
   return true;
@@ -44,7 +52,6 @@ function checkEmail() {
 function checkPassword() {
   let password = passwordInput.value.trim();
   if (password === "") {
-    hideError();
     msg.classList.add("show");
     validation.classList.remove("hidden");
     passwordBlank.classList.remove("hidden");
@@ -67,7 +74,6 @@ form.addEventListener("submit", function (e) {
       );
     });
     if (!user) {
-      hideError();
       msg.classList.add("show");
       loginError.classList.remove("hidden");
       return;
@@ -78,6 +84,6 @@ form.addEventListener("submit", function (e) {
     setTimeout(() => {
       toast.classList.remove("show");
       window.location.href = "dashboard.html";
-    }, 1500);
+    }, 1800);
   }
 });
