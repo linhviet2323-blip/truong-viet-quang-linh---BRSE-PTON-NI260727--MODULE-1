@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,10 +8,12 @@
     <link
       rel="shortcut icon"
       href="../assets/icons/trello-favicon.png"
-      type="image/x-icon" />
+      type="image/x-icon"
+    />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
     <title>Add user</title>
   </head>
   <body>
@@ -30,7 +32,8 @@
         <div class="dashboard-list user-dashboard">
           <img
             src="../assets/icons/user-dashboard-icon.png"
-            alt="User_dashboard" />
+            alt="User_dashboard"
+          />
           <a href="./dashboard.html" class="user-dashboard-link"
             >User dashboard</a
           >
@@ -96,24 +99,27 @@
                   id="status-active"
                   name="status"
                   value="Active"
-                  checked />
+                  checked
+                />
                 <label for="status-active" class="status-label">Active</label>
                 <input
                   type="radio"
                   id="status-deactive"
                   name="status"
-                  value="Deactive" />
+                  value="Deactive"
+                />
                 <label for="status-deactive" class="status-label"
                   >Deactive</label
                 >
               </div>
             </div>
           </div>
-          <div class="description">
+          <div id="description" class="description">
             <label>Description</label>
             <textarea
               name="description"
-              class="description-text-input"></textarea>
+              class="description-text-input"
+            ></textarea>
           </div>
           <div class="btn-row">
             <button class="form-btn back-btn">Back</button>
@@ -130,39 +136,39 @@
         </div>
         <!-- Add error -->
         <div id="add-error" class="hidden">
-          <div class="email-username-password-empty hidden">
+          <div id="email-username-password-empty" class="hidden">
             <i class="fa-solid fa-circle-exclamation"></i>
             <span class="add-error-message"
               >Email, Username và Password không được để trống</span
             >
           </div>
-          <div class="email-exist hidden">
+          <div id="email-exist" class="hidden">
             <i class="fa-solid fa-circle-exclamation"></i>
             <span class="add-error-title"
               >Email đã tồn tại. Đến trang đăng nhập!</span
             >
           </div>
-          <div class="email-error hidden">
+          <div id="email-error" class="hidden">
             <i class="fa-solid fa-circle-exclamation"></i>
             <span class="add-error-title">Email không đúng định dạng</span>
           </div>
-          <div class="password-min-length-error hidden">
+          <div id="password-min-length-error" class="hidden">
             <i class="fa-solid fa-circle-exclamation"></i>
             <span class="add-error-message">Mật khẩu tối thiểu 8 ký tự</span>
           </div>
-          <div class="password-number-required-error hidden">
+          <div id="password-number-required-error" class="hidden">
             <i class="fa-solid fa-circle-exclamation"></i>
             <span class="add-error-message"
               >Mật khẩu phải bao gồm cả chữ số</span
             >
           </div>
-          <div class="password-uppercase-lowercase-error hidden">
+          <div id="password-uppercase-lowercase-error" class="hidden">
             <i class="fa-solid fa-circle-exclamation"></i>
             <span class="add-error-message"
               >Mật khẩu có cả chữ thường và chữ hoa</span
             >
           </div>
-          <div class="role-not-admin hidden">
+          <div id="role-not-admin" class="hidden">
             <i class="fa-solid fa-circle-exclamation"></i>
             <span class="add-error-message">Không đủ quyền để add user</span>
           </div>
