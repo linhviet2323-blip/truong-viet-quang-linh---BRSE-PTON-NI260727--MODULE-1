@@ -73,3 +73,7 @@ form.addEventListener("submit", function (e) {
   // Chuyển hướng quay lại use management
   window.location.href = "dashboard.html";
 });
+let backBtn = document.getElementById("back-btn");
+backBtn.addEventListener("click", function () {
+  window.location.href = "dashboard.html";
+});
